@@ -1,15 +1,5 @@
 // Sample prompts data - in a real app this would come from your backend API
-import businessPortrait from "@/assets/sample-images/business-portrait.jpg";
-import womanProfessional from "@/assets/sample-images/woman-professional.jpg";
-import coupleUrban from "@/assets/sample-images/couple-urban.jpg";
-import kidsPlaying from "@/assets/sample-images/kids-playing.jpg";
-import cuteCat from "@/assets/sample-images/cute-cat.jpg";
-import landscapeSunset from "@/assets/sample-images/landscape-sunset.jpg";
-import abstractArt from "@/assets/sample-images/abstract-art.jpg";
-import fashionPortrait from "@/assets/sample-images/fashion-portrait.jpg";
-import goldenRetriever from "@/assets/sample-images/golden-retriever.jpg";
-import romanticCouple from "@/assets/sample-images/romantic-couple.jpg";
-import familyHome from "@/assets/sample-images/family-home.jpg";
+import { getImageUrl } from "@/config/app";
 
 export interface Prompt {
   id: string;
@@ -22,77 +12,77 @@ export interface Prompt {
 export const samplePrompts: Prompt[] = [
   {
     id: "1",
-    imageUrl: businessPortrait,
+    imageUrl: getImageUrl("business-portrait.jpg"),
     promptText: "Professional portrait of a confident business person in modern office setting, wearing a stylish navy suit, crisp lighting, contemporary style, realistic photography, high resolution, clean background",
     category: "Men",
     createdAt: "2024-03-15T10:00:00Z"
   },
   {
     id: "2", 
-    imageUrl: womanProfessional,
+    imageUrl: getImageUrl("woman-professional.jpg"),
     promptText: "Elegant professional woman in modern workspace, wearing sophisticated attire, natural lighting, contemporary style, realistic photography, high resolution",
     category: "Women",
     createdAt: "2024-03-14T15:30:00Z"
   },
   {
     id: "3",
-    imageUrl: coupleUrban,
+    imageUrl: getImageUrl("couple-urban.jpg"),
     promptText: "Happy couple walking together in modern urban setting, stylish casual attire, warm natural lighting, contemporary lifestyle, realistic photography, high resolution",
     category: "Couple",
     createdAt: "2024-03-13T12:15:00Z"
   },
   {
     id: "4",
-    imageUrl: kidsPlaying,
+    imageUrl: getImageUrl("kids-playing.jpg"),
     promptText: "Cheerful children playing in modern playground, bright colorful clothing, natural outdoor lighting, joyful family atmosphere, realistic photography, high resolution",
     category: "Kids",
     createdAt: "2024-03-12T09:45:00Z"
   },
   {
     id: "5",
-    imageUrl: cuteCat,
+    imageUrl: getImageUrl("cute-cat.jpg"),
     promptText: "Adorable cat with bright blue eyes and white fur, playful pose, natural lighting, cute pet photography, realistic style, high resolution",
     category: "Animals",
     createdAt: "2024-03-11T14:20:00Z"
   },
   {
     id: "6",
-    imageUrl: landscapeSunset,
+    imageUrl: getImageUrl("landscape-sunset.jpg"),
     promptText: "Beautiful landscape at sunset with mountains and clouds, golden hour lighting, scenic nature photography, realistic style, high resolution",
     category: "Nature",
     createdAt: "2024-03-10T18:00:00Z"
   },
   {
     id: "7",
-    imageUrl: abstractArt,
+    imageUrl: getImageUrl("abstract-art.jpg"),
     promptText: "Modern abstract art with vibrant colors and geometric shapes, contemporary digital art style, creative composition, high resolution",
     category: "Art",
     createdAt: "2024-03-09T11:30:00Z"
   },
   {
     id: "8",
-    imageUrl: fashionPortrait,
+    imageUrl: getImageUrl("fashion-portrait.jpg"),
     promptText: "Trendy fashion portrait of young model wearing stylish street wear, urban background, natural lighting, contemporary style, realistic photography, high resolution",
     category: "Women",
     createdAt: "2024-03-08T16:45:00Z"
   },
   {
     id: "9",
-    imageUrl: goldenRetriever,
+    imageUrl: getImageUrl("golden-retriever.jpg"),
     promptText: "Beautiful golden retriever dog running in park, playful expression, natural outdoor lighting, pet photography, realistic style, high resolution",
     category: "Animals",
     createdAt: "2024-03-07T13:20:00Z"
   },
   {
     id: "10",
-    imageUrl: romanticCouple,
+    imageUrl: getImageUrl("romantic-couple.jpg"),
     promptText: "Romantic couple enjoying sunset on beach, holding hands, warm golden lighting, intimate moment, realistic photography, high resolution",
     category: "Couple",
     createdAt: "2024-03-06T19:30:00Z"
   },
   {
     id: "11",
-    imageUrl: familyHome,
+    imageUrl: getImageUrl("family-home.jpg"),
     promptText: "Happy family with children in modern home setting, cozy atmosphere, natural lighting, lifestyle photography, realistic style, high resolution",
     category: "Kids",
     createdAt: "2024-03-05T11:15:00Z"

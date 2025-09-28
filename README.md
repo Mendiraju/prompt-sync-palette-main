@@ -1,152 +1,180 @@
-# AI Prompt Gallery
+# Prompt Sync Palette
 
-A beautiful, modern web application for discovering and copying AI prompts for image generation. Built with React, TypeScript, and Tailwind CSS.
+A modern, white-themed AI prompt gallery and management system optimized for VPS deployment.
 
-## 🎯 Features
+## ✨ Features
 
-- **Beautiful Gallery Interface** - Clean, modern design with responsive card layout
-- **Category Filtering** - Browse prompts by Men, Women, Couple, Kids, Animals, Nature, and Art
-- **One-Click Copy** - Instantly copy any prompt to clipboard
-- **Real-time Updates** - Live update indicator (ready for backend integration)
-- **Mobile Responsive** - Perfect viewing experience on all devices
-- **Admin Panel Demo** - Basic admin interface structure
+- **Clean White Theme**: Professional, business-ready design
+- **VPS Ready**: Optimized for deployment on your VPS
+- **Image Management**: Dynamic image URL handling
+- **Category Filtering**: Browse prompts by categories (Men, Women, Couple, Kids, Animals, Nature, Art)
+- **One-Click Copy**: Instantly copy AI prompts to clipboard
+- **Responsive Design**: Works perfectly on desktop and mobile
+- **Production Optimized**: Minified builds with code splitting
 
-## 🚀 Live Demo
+## 🚀 Quick Start
 
-Visit the gallery at: `/`  
-Admin panel at: `/admin` (demo: admin/admin)
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-## 📁 Project Structure
-
-```
-src/
-  components/
-    ui/                 # Shadcn UI components
-    PromptCard.tsx      # Individual prompt display card
-    CategoryFilter.tsx  # Category filtering buttons
-    GalleryHeader.tsx   # Main header with logo and stats
-    PromptGallery.tsx   # Main gallery component
-  data/
-    samplePrompts.ts    # Sample data (11 prompts with images)
-  pages/
-    Index.tsx           # Main gallery page
-    Admin.tsx           # Admin panel (demo)
-  assets/
-    sample-images/      # Generated sample images
-```
-
-## 🎨 Design System
-
-- **Primary Color**: Blue (#4F7CFF) - Matches the reference design
-- **Typography**: Clean, modern typography with proper hierarchy
-- **Layout**: Card-based responsive grid with consistent spacing
-- **Animations**: Smooth transitions and hover effects
-
-## 🛠 Current Implementation
-
-This is a **frontend-only** implementation with:
-
-- ✅ 11 sample AI prompts with generated images
-- ✅ Category filtering (All, Men, Women, Couple, Kids, Animals, Nature, Art)
-- ✅ Copy to clipboard functionality
-- ✅ Responsive design
-- ✅ Modern UI with proper loading states
-- ✅ Admin panel structure (demo)
-
-## ⚠️ Backend Requirements
-
-To make this a **production-ready** application as requested, you'll need:
-
-### Database Schema
-```sql
-CREATE TABLE prompts (
-  id SERIAL PRIMARY KEY,
-  image_url VARCHAR(500) NOT NULL,
-  prompt_text TEXT NOT NULL,
-  category VARCHAR(50) NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
-);
-```
-
-### Required API Endpoints
-- `GET /api/prompts` - Fetch all prompts
-- `POST /api/prompts` - Add new prompt (admin only)
-- `PUT /api/prompts/:id` - Update prompt (admin only)
-- `DELETE /api/prompts/:id` - Delete prompt (admin only)
-
-### Infrastructure Needed
-1. **Database**: PostgreSQL (Heroku) or SQLite (VPS)
-2. **Authentication**: JWT or session-based for admin
-3. **Real-time Updates**: WebSockets or Server-Sent Events
-4. **File Storage**: For image uploads
-5. **API Server**: Node.js/Express, Python/Flask, or similar
-
-### Environment Variables
-```bash
-DATABASE_URL=your_database_url
-ADMIN_USER=admin_username
-ADMIN_PASS=admin_password
-JWT_SECRET=your_jwt_secret
-```
-
-## 🚀 Quick Setup (Frontend Only)
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/prompt-sync-palette.git
+cd prompt-sync-palette
+
 # Install dependencies
 npm install
 
 # Start development server
 npm run dev
-
-# Build for production
-npm run build
 ```
 
-## 🔧 Recommended Backend Solutions
+### Build for Production
 
-### Option 1: Supabase (Recommended)
-- Instant PostgreSQL database
-- Built-in authentication
-- Real-time subscriptions
-- File storage
-- Auto-generated APIs
+```bash
+# Build for production
+npm run build:prod
 
-### Option 2: Custom Backend
-- Node.js + Express + PostgreSQL
-- Python + Flask/FastAPI + PostgreSQL
-- WebSocket integration for real-time updates
+# Preview production build
+npm run preview:prod
+```
 
-## 📱 Mobile Responsive
+## 🌐 VPS Deployment
 
-The gallery is fully responsive and works perfectly on:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
+### Quick Deployment
 
-## 🎯 Future Enhancements
+1. **Update Configuration**: Edit `src/config/app.ts` with your VPS domain
+2. **Build**: Run `npm run build:prod`
+3. **Upload**: Upload `dist` folder contents to your VPS
+4. **Images**: Create `/images` directory and upload your images
+5. **Configure**: Set up your web server (see DEPLOYMENT.md)
 
-- [ ] Backend integration
-- [ ] User authentication
-- [ ] Prompt favorites/bookmarks
-- [ ] Search functionality
-- [ ] Prompt rating system
-- [ ] Image upload for custom prompts
-- [ ] Export/share functionality
-- [ ] Advanced filtering options
+### Using Deployment Scripts
+
+**Windows:**
+```bash
+deploy.bat
+```
+
+**Linux/Mac:**
+```bash
+chmod +x deploy.sh
+./deploy.sh
+```
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Create a `.env` file:
+
+```env
+VITE_API_BASE_URL=https://your-domain.com
+VITE_IMAGE_BASE_URL=https://your-domain.com/images
+VITE_APP_TITLE=Prompt Sync Palette
+VITE_APP_DESCRIPTION=AI Prompt Gallery and Management System
+```
+
+### Image Setup
+
+Place your images in the `/images` directory on your VPS:
+- business-portrait.jpg
+- woman-professional.jpg
+- couple-urban.jpg
+- kids-playing.jpg
+- cute-cat.jpg
+- landscape-sunset.jpg
+- abstract-art.jpg
+- fashion-portrait.jpg
+- golden-retriever.jpg
+- romantic-couple.jpg
+- family-home.jpg
+
+## 🛠️ Tech Stack
+
+- **React 18** - Modern React with hooks
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Radix UI** - Accessible component primitives
+- **React Router** - Client-side routing
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ui/             # Reusable UI components
+│   ├── PromptCard.tsx  # Individual prompt card
+│   ├── PromptGallery.tsx # Main gallery component
+│   └── ...
+├── config/             # App configuration
+│   └── app.ts         # VPS and environment config
+├── data/              # Sample data
+│   └── samplePrompts.ts # Prompt data with VPS URLs
+├── pages/             # Page components
+└── ...
+```
+
+## 🎨 Customization
+
+### Theme Colors
+
+Edit `src/index.css` to customize colors:
+
+```css
+:root {
+  --background: 255 255 255;  /* Pure white */
+  --primary: 59 130 246;      /* Blue */
+  --foreground: 15 23 42;     /* Dark text */
+}
+```
+
+### Adding New Prompts
+
+Edit `src/data/samplePrompts.ts`:
+
+```typescript
+{
+  id: "12",
+  imageUrl: getImageUrl("your-image.jpg"),
+  promptText: "Your AI prompt text here...",
+  category: "Your Category",
+  createdAt: new Date().toISOString()
+}
+```
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:prod` - Build with production optimizations
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
 ## 🤝 Contributing
 
-This frontend is ready for backend integration. The component structure makes it easy to:
-
-1. Replace sample data with API calls
-2. Add authentication context
-3. Implement real-time updates
-4. Add form validation and error handling
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit changes: `git commit -m 'Add feature'`
+4. Push to branch: `git push origin feature-name`
+5. Submit a pull request
 
 ## 📄 License
 
-MIT License - feel free to use this code for your projects.
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🆘 Support
+
+- 📖 Check [DEPLOYMENT.md](./DEPLOYMENT.md) for deployment help
+- 🐛 Report issues on GitHub
+- 💬 Ask questions in discussions
 
 ---
 
-**Note**: This is currently a frontend demo. For full production deployment with database persistence, real-time updates, and admin functionality, backend integration is required.
+**Made with ❤️ for AI prompt enthusiasts**
