@@ -1,8 +1,8 @@
 // App configuration for VPS deployment
 export const config = {
   // VPS URLs - Update these with your actual VPS domain
-  apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'https://your-vps-domain.com',
-  imageBaseUrl: import.meta.env.VITE_IMAGE_BASE_URL || 'https://your-vps-domain.com/images',
+  apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'http://139.59.15.22',
+  imageBaseUrl: import.meta.env.VITE_IMAGE_BASE_URL || 'http://139.59.15.22/images',
   
   // App settings
   appTitle: import.meta.env.VITE_APP_TITLE || 'Prompt Sync Palette',
